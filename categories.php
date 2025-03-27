@@ -1,180 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!-- Important to make website responsive -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Website</title>
-
-    <!-- Link our CSS file -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-    <!-- Navbar Section Starts Here -->
-    <section class="navbar">
-        <div class="container">
-            <div class="logo">
-                <a href="#" title="Logo">
-                    <img src="images/logo.png" alt="Restaurant Logo" class="img-responsive">
-                </a>
-            </div>
-
-            <div class="menu text-right">
-                <ul>
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="categories.html">Categories</a>
-                    </li>
-                    <li>
-                        <a href="foods.html">Foods</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="clearfix"></div>
-        </div>
-    </section>
-    <!-- Navbar Section Ends Here -->
-
-
+<?php include('partials-frontend/menu.php');?>
 
     <!-- CAtegories Section Starts Here -->
     <section class="categories">
         <div class="container">
             <h2 class="text-center">Explore Foods</h2>
 
-            <a href="category-foods.html">
-            <div class="box-3 float-container">
-                <img src="images/pizza.jpg" alt="Pizza" class="img-responsive img-curve">
+            <?php 
+            // display all cat that are active
 
-                <h3 class="float-text text-white">Pizza</h3>
-            </div>
-            </a>
+            $sql = "SELECT * FROM category  where active='Yes' ";
+            $res =  mysqli_query($conn, $sql);
+            $count=mysqli_num_rows($res);
+            if($count > 0)
+            {
+                while ($row=mysqli_fetch_assoc($res)){
+                    $id = $row['id'];
+                    $title = $row['title'];
+                    $image_name=$row['image_name'];
+                    ?>
+                    <a href="<?php echo SITEURL; ?>category-foods.php?category_id=<?php echo $id; ?>">
+                        <div class="box-3 float-container">
+                        <?php 
+                            //checking if img available or not
+                            if ($image_name=="")
+                            {
+                                echo "<div class='error'>Image Not Available</div>";
+                            }
+                            else
+                            {
+                                ?>
+                                <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="Pizza" class="img-responsive img-curve">
+                                <?php
+                            }
+                            ?>
+                            
 
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="images/burger.jpg" alt="Burger" class="img-responsive img-curve">
+                            <h3 class="float-text text-white"><?php echo $title; ?></h3>
+                        </div>
+                    </a>
+                    <?php
 
-                <h3 class="float-text text-white">Burger</h3>
-            </div>
-            </a>
-
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="images/momo.jpg" alt="Momo" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Momo</h3>
-            </div>
-            </a>
-
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="images/pizza.jpg" alt="Pizza" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Pizza</h3>
-            </div>
-            </a>
-
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="images/burger.jpg" alt="Burger" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Burger</h3>
-            </div>
-            </a>
-
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="images/momo.jpg" alt="Momo" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Momo</h3>
-            </div>
-            </a>
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="images/pizza.jpg" alt="Pizza" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Pizza</h3>
-            </div>
-            </a>
-
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="images/burger.jpg" alt="Burger" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Burger</h3>
-            </div>
-            </a>
-
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="images/momo.jpg" alt="Momo" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Momo</h3>
-            </div>
-            </a>
-
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="images/pizza.jpg" alt="Pizza" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Pizza</h3>
-            </div>
-            </a>
-
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="images/burger.jpg" alt="Burger" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Burger</h3>
-            </div>
-            </a>
-
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="images/momo.jpg" alt="Momo" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Momo</h3>
-            </div>
-            </a>
-
+                }
+            }
+            else
+            {
+                //?cat not availabe
+                echo "<div class='error'>Category Not Available</div>";
+            }
+            ?>
+            
+            
             
 
+            
             <div class="clearfix"></div>
         </div>
     </section>
     <!-- Categories Section Ends Here -->
 
 
-    <!-- social Section Starts Here -->
-    <section class="social">
-        <div class="container text-center">
-            <ul>
-                <li>
-                    <a href="#"><img src="https://img.icons8.com/fluent/50/000000/facebook-new.png"/></a>
-                </li>
-                <li>
-                    <a href="#"><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/></a>
-                </li>
-                <li>
-                    <a href="#"><img src="https://img.icons8.com/fluent/48/000000/twitter.png"/></a>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <!-- social Section Ends Here -->
-
-    <!-- footer Section Starts Here -->
-    <section class="footer">
-        
-    </section>
-    <!-- footer Section Ends Here -->
-
-</body>
-</html>
+    <?php include('partials-frontend/footer.php');?>
