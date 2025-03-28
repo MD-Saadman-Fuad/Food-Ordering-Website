@@ -16,24 +16,55 @@
         <br><br>
 
         <div class="col-4 text-center">
-            <h1>5</h1>
+            <?php 
+            $sql = "SELECT * from category";
+
+            $res = mysqli_query($conn, $sql);
+
+            $count = mysqli_num_rows($res);
+            ?>
+
+
+            <h1><?php echo $count;?></h1>
             <br>
             categories
         </div>
         <div class="col-4 text-center">
-            <h1>5</h1>
+        <?php 
+            $sql2 = "SELECT * from food";
+
+            $res2 = mysqli_query($conn, $sql2);
+
+            $count2 = mysqli_num_rows($res2);
+            ?>
+            <h1><?php echo $count2;?></h1>
             <br>
-            categories
+            foods
         </div>
         <div class="col-4 text-center">
-            <h1>5</h1>
+        <?php 
+            $sql3 = "SELECT * from order_table";
+
+            $res3 = mysqli_query($conn, $sql3);
+
+            $count3 = mysqli_num_rows($res3);
+            ?>
+            <h1><?php echo $count3;?></h1>
             <br>
-            categories
+            Total orders
         </div>
         <div class="col-4 text-center">
-            <h1>5</h1>
+            <?php 
+            $sql4 = "SELECT SUM(total) as Total FROM order_table Where status='Delivered'";
+            $res4 = mysqli_query($conn, $sql4);
+
+            $row4 = mysqli_fetch_assoc($res4);
+
+            $total_revenue = $row4['Total'];
+            ?>
+            <h1><?php echo $total_revenue;?></h1>
             <br>
-            categories
+            Revenue generated
         </div>
         <div class="clear-fix"></div>
     </div>
