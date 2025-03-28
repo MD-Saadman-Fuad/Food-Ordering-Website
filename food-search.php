@@ -4,7 +4,7 @@
     <section class="food-search text-center">
         <div class="container">
         <?php 
-            $search = $_POST['search']; //fetch search data
+            $search = mysqli_real_escape_string($conn, $_POST['search']); //fetch search data
         ?>
             
             <h2>Foods on Your Search <a href="#" class="text-white">"<?php echo $search; ?>"</a></h2>

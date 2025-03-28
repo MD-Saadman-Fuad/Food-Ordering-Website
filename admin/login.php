@@ -55,8 +55,11 @@
 <?php
 
 if (isset($_POST['submit'])) {
-    $user_name = $_POST['user_name'];
+    //$user_name = $_POST['user_name'];
+    $user_name = mysqli_real_escape_string($conn, $_POST['user_name']);;
     $password = md5($_POST['password']);
+    //$raw_password = md5($_POST['password']);
+    //$pasword = mysqli_real_escape_string($conn, $raw_password);
 
 
     $sql = "SELECT * FROM admin WHERE user_name='$user_name'and password='$password'";
