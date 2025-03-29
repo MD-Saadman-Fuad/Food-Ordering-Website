@@ -1,8 +1,7 @@
 <!-- footer start -->
 <div class="footer">
             <div class="wrapper">
-                <p class="text-center">2024 All Rights Reserved and Developed by - <a href="#">Saadman Fuad</a> </p>
-            </div>
+            <p class="text-center">Developed for learning purpose by <a href="https://github.com/MD-Saadman-Fuad">VOLVOX</a> </p>            </div>
         </div>
        <!-- footer ends-->
 

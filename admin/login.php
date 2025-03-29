@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <!-- Important to make website responsive -->
@@ -13,11 +14,11 @@
 </head>
 
 <body>
-    
+
     <!-- Navbar Section Starts Here -->
     <section class="navbar">
         <div class="container">
-            <div class="logo">
+            <div class="logo" style="padding-top: 10px;">
                 <a href="<?php echo SITEURL; ?>" title="Logo">
                     <img src="../images/logo.png" alt="Restaurant Logo" class="img-responsive">
                 </a>
@@ -46,55 +47,55 @@
             <div class="clearfix"></div>
         </div>
     </section>
-    
+
 
 
 
     <div class="food-search">
-    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-        <div style="border: 1px solid grey; width: 25%; padding: 2%; background: white; text-align: center; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
+            <div style="border: 1px solid grey; width: 25%; padding: 2%; background: white; text-align: center; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
 
-            <h1 class="text-center">Login</h1>
-            <br>
-            <?php
-            if (isset($_SESSION['login'])) {
-                echo $_SESSION['login'];
-                unset($_SESSION['login']);
-            }
-            if (isset($_SESSION['no-login-msg'])) {
-                echo $_SESSION['no-login-msg'];
-                unset($_SESSION['no-login-msg']);
-            }
-
-
-            ?>
-            <form action="" method="post" class="text-center" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); display: inline-block; text-align: center;">
-
-
-                <label for="username" style="font-weight: bold;">Username:</label>
+                <h1 class="text-center">Login</h1>
                 <br>
-                <input type="text" id="username" name="user_name" placeholder="Enter Username" required autocomplete="off"
-                    style="padding: 10px; width: 80%; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; text-align: center;">
+                <?php
+                if (isset($_SESSION['login'])) {
+                    echo $_SESSION['login'];
+                    unset($_SESSION['login']);
+                }
+                if (isset($_SESSION['no-login-msg'])) {
+                    echo $_SESSION['no-login-msg'];
+                    unset($_SESSION['no-login-msg']);
+                }
+
+
+                ?>
+                <form action="" method="post" class="text-center" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); display: inline-block; text-align: center;">
+
+
+                    <label for="username" style="font-weight: bold;">Username:</label>
+                    <br>
+                    <input type="text" id="username" name="user_name" placeholder="Enter Username" required autocomplete="off"
+                        style="padding: 10px; width: 80%; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; text-align: center;">
+                    <br>
+
+                    <label for="password" style="font-weight: bold;">Password:</label>
+                    <br>
+                    <input type="password" id="password" name="password" placeholder="Enter Password" required autocomplete="off"
+                        style="padding: 10px; width: 80%; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; text-align: center;">
+                    <br><br>
+
+                    <input type="submit" name="submit" value="Login"
+                        style="background-color: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px; font-weight: bold;">
+                </form>
+
                 <br>
 
-                <label for="password" style="font-weight: bold;">Password:</label>
-                <br>
-                <input type="password" id="password" name="password" placeholder="Enter Password" required autocomplete="off"
-                    style="padding: 10px; width: 80%; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; text-align: center;">
-                <br><br>
-
-                <input type="submit" name="submit" value="Login"
-                    style="background-color: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px; font-weight: bold;">
-            </form>
-
-            <br>
 
 
 
-
-            <p class="text-center">Created by - <a href="#">Saadman Fuad</a></p>
+                <!--<p class="text-center">Created by - <a href="#">Saadman Fuad</a></p>-->
+            </div>
         </div>
-    </div>
     </div>
 
 
