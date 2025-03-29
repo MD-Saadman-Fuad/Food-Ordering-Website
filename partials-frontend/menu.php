@@ -16,8 +16,8 @@
     <!-- Navbar Section Starts Here -->
     <section class="navbar">
         <div class="container">
-            <div class="logo">
-                <a href="#" title="Logo">
+            <div class="logo" style="padding-top: 10px;">
+                <a href="<?php echo SITEURL; ?>" title="Logo">
                     <img src="images/logo.png" alt="Restaurant Logo" class="img-responsive">
                 </a>
             </div>
@@ -34,7 +34,10 @@
                         <a href="<?php echo SITEURL; ?>foods.php">Foods</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="<?php echo SITEURL; ?>contact.php">Contact</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo SITEURL; ?>admin/login.php">Admin</a>
                     </li>
                 </ul>
             </div>

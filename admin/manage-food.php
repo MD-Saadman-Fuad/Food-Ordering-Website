@@ -85,7 +85,7 @@
                                 <tr>
                                     <td><?php echo $serial++; ?>. </td>
                                     <td><?php echo $title; ?></td>
-                                    <td>$<?php echo $price; ?></td>
+                                    <td><?php echo $price; ?> Taka</td>
                                     <td>
                                         <?php  
                                             
